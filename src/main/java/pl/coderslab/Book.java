@@ -2,6 +2,8 @@ package pl.coderslab;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "books")
 public class Book {
@@ -12,19 +14,13 @@ public class Book {
     private String title;
     private int rating;
     private String description;
-    @ManyToOne
-    private Author author;
+    @ManyToMany
+    private List<Author> authors;
     @ManyToOne
     private Publisher publisher;
 
 
-    public Author getAuthor() {
-        return author;
-    }
 
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
 
     public Publisher getPublisher() {
         return publisher;

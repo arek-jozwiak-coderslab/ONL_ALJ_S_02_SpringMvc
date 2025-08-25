@@ -3,8 +3,11 @@ package pl.coderslab;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 @Transactional
@@ -24,5 +27,10 @@ public class BookDao {
 
     public void delete(Book book) {
         entityManager.remove(entityManager.contains(book) ? book : entityManager.merge(book));
+    }
+
+    public List<Book> findAll(){
+        Query query = entityManager.createQuery("SELECT b FROM Book b");
+        return query.getResultList();
     }
 }
