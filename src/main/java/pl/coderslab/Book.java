@@ -12,6 +12,27 @@ public class Book {
     private String title;
     private int rating;
     private String description;
+    @ManyToOne
+    private Author author;
+    @ManyToOne
+    private Publisher publisher;
+
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
 
     @Override
     public String toString() {

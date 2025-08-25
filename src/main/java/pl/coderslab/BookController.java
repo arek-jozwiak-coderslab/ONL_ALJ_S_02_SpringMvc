@@ -8,15 +8,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/book")
 public class BookController {
     private final BookDao bookDao;
+    private final PublisherDao publisherDao;
 
-    public BookController(BookDao bookDao) {
+    public BookController(BookDao bookDao, PublisherDao publisherDao) {
         this.bookDao = bookDao;
+        this.publisherDao = publisherDao;
     }
     @GetMapping("/create")
     public String createBook() {
+        Publisher publisher = new Publisher();
+        publisher.setName("Helion");
+        publisherDao.save(publisher);
         Book book = new Book();
         book.setTitle("Thinking in Java");
         book.setRating(4);
+        book.setPublisher(publisher);
         bookDao.saveBook(book);
         return "Id dodanej książki to: " + book.getId();
     }
