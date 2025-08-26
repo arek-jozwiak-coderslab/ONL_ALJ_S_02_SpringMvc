@@ -56,4 +56,12 @@ public class BookController {
         bookDao.delete(book);
         return "Usunięto książkę: " + book.toString();
     }
+
+    @GetMapping("/find-by-title")
+    public String findByTitle() {
+        bookRepository.findByTitleQuery("Thinking in Java - 2nd Edition")
+                .forEach(System.out::println);
+
+        return "result";
+    }
 }
