@@ -18,6 +18,8 @@ public class Book {
     private List<Author> authors;
     @ManyToOne
     private Publisher publisher;
+    @ManyToOne
+    private Category category;
 
 
 
