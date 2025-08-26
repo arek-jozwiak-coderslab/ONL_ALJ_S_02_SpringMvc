@@ -36,9 +36,9 @@ public class BookController {
         return "Id dodanej książki to: " + book.getId();
     }
     @GetMapping("/read")
-    public String readBook() {
+    public Book readBook() {
         Book book = bookDao.findById(1);
-        return book.toString();
+        return book;
     }
 
     @GetMapping("/update")
