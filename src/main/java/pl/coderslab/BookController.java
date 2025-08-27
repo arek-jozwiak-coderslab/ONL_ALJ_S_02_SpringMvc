@@ -22,9 +22,6 @@ public class BookController {
     public String createBook() {
 
         bookRepository.findAll().forEach(System.out::println);
-//        bookRepository.findById(1L).ifPresent(System.out::println);
-//        bookRepository.findByRating(4).stream().forEach(System.out::println);
-
         Publisher publisher = new Publisher();
         publisher.setName("Helion");
         publisherDao.save(publisher);
