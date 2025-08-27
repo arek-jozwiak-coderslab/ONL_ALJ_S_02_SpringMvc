@@ -1,4 +1,4 @@
-package pl.coderslab.movie;
+package pl.coderslab.student;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,16 +9,13 @@ import lombok.*;
 @Entity
 @Getter
 @Setter
-@ToString
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class Movie {
+public class Student {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String title;
-    private String director;
-    private int releaseYear;
-    private String genre;
+    private String firstName;
+    private String lastName;
+    private String indexNumber;
+    private double averageGrade;
 }
