@@ -12,11 +12,11 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @RequestMapping("/student")
 public class StudentController {
-    private final StudentRepository studentRepository;
+    private final StudentService studentService;
 
     @GetMapping
     public List<StudentDTO> findAll() {
-        return studentRepository.findAll()
+        return studentService.findAll()
                 .stream()
                 .map(s -> StudentDTO.builder()
                         .id(s.getId())
